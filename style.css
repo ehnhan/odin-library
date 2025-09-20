@@ -23,3 +23,11 @@
   );
   opacity: 0.75;
 }
+
+.read {
+    background-color: green;
+}
+
+.not_read {
+    background-color: red;
+}
