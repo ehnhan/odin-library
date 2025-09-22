@@ -8,39 +8,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Library</h1>
-    <button class="add_book">Add Book</button>
-
-    <dialog id="modal-root">
-        <div id="modal">
-            <form action="">
-                <div>
-                    <label for="new_title">Title</label>
-                    <input type="text" id="new_title" name="new_title">
-                </div>
-                <div>
-                    <label for="new_author">Author</label>
-                    <input type="text" id="new_author" name="new_author">
-                </div>
-                <div>
-                    <label for="new_pages">Pages</label>
-                    <input type="number" id="new_pages" name="new_pages">
-                </div>
-                <div>
-                    <label for="new_read">Read</label>
-                    <input type="checkbox" id="new_read" name="new_read">
-                </div>
-                <div>
-                    <button id="cancelBtn" value="cancel">Cancel</button>
-                    <button type="submit" id="confirmBtn" value="default">Confirm</button>
-                </div>
-            </form>
+    <div class="container">
+        <div class="header">
+            <img class="logo" src="https://www.theodinproject.com/mstile-310x310.png" alt="" width="100px">
+            <h1>Library</h1>
         </div>
-
-    </dialog>
-
-    <div class="books">
-
+        <button class="add_book">Add Book</button>
+        <dialog>
+            <div class="modal">
+                <form action="">
+                    <table>
+                        <tr>
+                            <label for="new_title">Title</label>
+                            <input type="text" id="new_title" name="new_title">
+                        </tr>
+                        <tr>
+                            <label for="new_author">Author</label>
+                            <input type="text" id="new_author" name="new_author">
+                        </tr>
+                        <tr>
+                            <label for="new_pages">Pages</label>
+                            <input type="number" id="new_pages" name="new_pages">
+                        </tr>
+                    </table>
+                    <div>
+                        <label for="new_read">Read</label>
+                        <input type="checkbox" id="new_read" name="new_read">
+                    </div>
+                    <div class="form_btns">
+                        <button id="cancelBtn" value="cancel">Cancel</button>
+                        <button type="submit" id="confirmBtn" value="default">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+        <div class="books">
+        </div>
     </div>
 </body>
 </html>

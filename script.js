@@ -2,6 +2,11 @@ const myLibary = [];
 const books_container = document.querySelector(".books");
 const properties_to_show = ["title", "author", "pages"];
 
+addBookToLibrary("Naruto","Masashi Kishimoto", 330, true);
+addBookToLibrary("One Piece","Eiichiro Oda", 900, true);
+addBookToLibrary("Beserk", "Kentaro Miura", 500, false);
+displayBooks();
+
 function Book(title, author, pages, read) {
     this.book_id = crypto.randomUUID();
     this.title = title;
@@ -23,6 +28,10 @@ function displayBooks() {
     myLibary.forEach(createBookElement);
 }
 
+function capitalizeFirstLetter(word) {
+    return String(word).charAt(0).toUpperCase() + String(word).slice(1);
+}
+
 function createBookElement(book) {
     let div = document.createElement("div");
     div.className = "book";
@@ -33,7 +42,7 @@ function createBookElement(book) {
         if (properties_to_show.includes(prop)) {
             let info = document.createElement("div");
             info.className = prop;
-            info.innerText = book[prop];
+            info.innerText = `${capitalizeFirstLetter(prop)}: ${book[prop]}`;
             div.appendChild(info);
         }
     }
@@ -55,7 +64,8 @@ function createBookElement(book) {
     div.appendChild(readBtn);
 
     let delBtn = document.createElement("button");
-    delBtn.innerText = "-";
+    delBtn.innerText = "Delete";
+    delBtn.className = "delete";
 
     delBtn.addEventListener("click", (e) => {
         // find id and remove from array
@@ -71,11 +81,6 @@ function createBookElement(book) {
 
     books_container.appendChild(div);
 }
-
-addBookToLibrary("Naruto","Masashi Kishimoto", 330, true);
-addBookToLibrary("One Piece","Eiichiro Oda", 900, true);
-addBookToLibrary("Beserk", "Kentaro Miura", 500, false);
-displayBooks();
 
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector(".add_book");
@@ -95,14 +100,12 @@ showButton.addEventListener("click", () => {
 confirmButton.addEventListener("click", (e) => {
     e.preventDefault();
 
-
     if (!(book_title.value == "" || book_author.value == "" || book_pages.value == "")) {
         addBookToLibrary(book_title.value, book_author.value, book_pages.value, book_read.checked);
         displayBooks();
         resetForm();
         dialog.close();
     }
-
 });
 
 // "Close" button closes the dialog
