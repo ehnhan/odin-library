@@ -64,7 +64,7 @@ function createBookElement(book) {
     div.appendChild(readBtn);
 
     let delBtn = document.createElement("button");
-    delBtn.innerText = "Delete";
+    delBtn.innerText = "X";
     delBtn.className = "delete";
 
     delBtn.addEventListener("click", (e) => {
