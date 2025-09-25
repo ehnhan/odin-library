@@ -2,21 +2,18 @@ const myLibary = [];
 const books_container = document.querySelector(".books");
 const properties_to_show = ["title", "author", "pages"];
 
-addBookToLibrary("Naruto","Masashi Kishimoto", 330, true);
-addBookToLibrary("One Piece","Eiichiro Oda", 900, true);
-addBookToLibrary("Beserk", "Kentaro Miura", 500, false);
-displayBooks();
+class Book {
+    constructor(title, author, pages, read) {
+        this.book_id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-function Book(title, author, pages, read) {
-    this.book_id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
+    toggleRead() {
+        this.read = !this.read;
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -122,15 +119,7 @@ function resetForm() {
     book_read.checked = false;
 }
 
-// const modalRoot = document.querySelector("dialog");
-// modalRoot.addEventListener('click', () => {
-//     dialog.close();
-// });
-
-// const modal = document.querySelector("#modal");
-// modal.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     e.stopPropagation();
-//     e.stopImmediatePropagation();
-//     return false;
-// });
+addBookToLibrary("Naruto","Masashi Kishimoto", 330, true);
+addBookToLibrary("One Piece","Eiichiro Oda", 900, true);
+addBookToLibrary("Beserk", "Kentaro Miura", 500, false);
+displayBooks();
